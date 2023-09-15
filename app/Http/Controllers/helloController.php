@@ -13,5 +13,9 @@ class helloController extends Controller
         // 일단은 이렇게 모델을 가져오는 것이 추천 코드라고 생각하시면 됩니다.
         $this->posts = $posts;
     }
+    public function create(){
+        return view('posts.create');
+    }
+    
     
 }

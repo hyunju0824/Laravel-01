@@ -14,7 +14,7 @@
 
   <!-- 글 작성 폼 -->
 
-  <form id="postForm" class="mt-3">
+  <form id="postForm" method="post" class="mt-3">
     
     <div class=form-group>
       <label for=title>제목</label>

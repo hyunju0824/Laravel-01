@@ -24,4 +24,3 @@ Route::get('/show', function () {
 Route::get('/create', function () {
     return view('create');
 })->name('posts.create');
-
