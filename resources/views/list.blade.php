@@ -63,7 +63,7 @@
 
   </table>
 
-  <a href="{{route("posts.create",$posts)}}" class="btn btn-primary pull-right">글쓰기</a>
+  <a href="{{route("posts.create")}}" class="btn btn-primary pull-right">글쓰기</a>
 
 </div>
 

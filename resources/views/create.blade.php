@@ -14,26 +14,26 @@
 
   <!-- 글 작성 폼 -->
 
-  <form id="postForm" method="post" class="mt-3">
-    
+  <form action="{{route("upload")}}" id="postForm" method="post" class="mt-3">
+    @csrf
     <div class=form-group>
       <label for=title>제목</label>
-      <input type=text class=form-control id=title required>
+      <input name="title" type=text class=form-control id=title required>
     </div>
     <div class=form-group>
         <label for=title>이름</label>
-        <input type=text class=form-control id=name required>
+        <input name="name" type=text class=form-control id=name required>
       </div>
     <div class=form-group>
       <label for=content>내용</label>
-      <textarea class=form-control id=content rows=3 required></textarea>
+      <textarea name="contents" class=form-control id=content rows=3 required></textarea>
     </div>
     <div class=form-group>
         <label for=password>비밀번호</label>
-        <input type=password class=form-control id=password required>
+        <input name="password" type=password class=form-control id=password required>
       </div>
       <div>
-        <button>제출</button>
+        <input type="submit" name="" id="">
       </div>
 
     

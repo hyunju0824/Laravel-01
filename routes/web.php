@@ -21,6 +21,6 @@ Route::get('/', function () {
 Route::get('/show', function () {
     return view('show');
 })->name('posts.show');
-Route::get('/create', function () {
-    return view('create');
-})->name('posts.create');
+Route::get('/create',[helloController::class,'create'])->name('posts.create');
+
+Route::post('/list/postCreate',[helloController::class,'upload'])->name('upload');
