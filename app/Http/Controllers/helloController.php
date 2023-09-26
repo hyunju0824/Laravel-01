@@ -19,8 +19,15 @@ class helloController extends Controller
     }
 
     public function upload(request $request){
-        return $request;
-    }
+        $request = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'writer' => 'required',
+            'password' => 'required'
+        ]);
+        $this->posts->create($request);
+        return redirect()->route('posts.list');
+        }
 
     public function list(){
         // products 의 데이터를 최신순으로 페이징을 해서 가져옵니다.

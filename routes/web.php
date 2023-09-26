@@ -15,7 +15,7 @@ use \App\Http\Controllers\helloController;
 */
 
 
-Route::get('/',[helloController::class,'list'])->name('list');
+Route::get('/',[helloController::class,'list'])->name('posts.list');
 Route::get('/show', function () {
     return view('show');
 })->name('posts.show');

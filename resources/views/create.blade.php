@@ -22,11 +22,11 @@
     </div>
     <div class=form-group>
         <label for=title>이름</label>
-        <input name="name" type=text class=form-control id=name required>
+        <input name="writer" type=text class=form-control id=writer required>
       </div>
     <div class=form-group>
       <label for=content>내용</label>
-      <textarea name="contents" class=form-control id=content rows=3 required></textarea>
+      <textarea name="content" class=form-control id=content rows=3 required></textarea>
     </div>
     <div class=form-group>
         <label for=password>비밀번호</label>
