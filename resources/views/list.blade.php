@@ -46,24 +46,31 @@
     </thead>
 
     <tbody>
-
+      @foreach ($posts as $key => $post)
       <tr>
 
-        <td>1</td>
+        <td>{{$key+1 + (($posts->currentPage()-1) * 5)}}</td>
 
-        <td>비트코인 떡락</td>
+        {{-- 제목 --}}
+        <td>{{$post->title}}</td>
 
-        <td>네오보유자</td>
+        {{-- 이름 --}}
+        <td>{{$post->writer}}</td>
 
-        <td>2018-03-11</td>
+        {{-- 날짜 --}}
+        <td>{{$post->created_at}}</td>
+
+        {{-- 편집/삭제 --}}
+        <td>Edit/Delete</td>
 
       </tr>
-
+      @endforeach
     </tbody>
 
   </table>
 
   <a href="{{route("posts.create")}}" class="btn btn-primary pull-right">글쓰기</a>
+  {!! $posts->links() !!}
 
 </div>
 

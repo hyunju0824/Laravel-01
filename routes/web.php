@@ -14,10 +14,8 @@ use \App\Http\Controllers\helloController;
 |
 */
 
-Route::get('/', function () {
-    $posts = "test";
-    return view('list', compact('posts'));
-})->name('posts.index');
+
+Route::get('/',[helloController::class,'list'])->name('list');
 Route::get('/show', function () {
     return view('show');
 })->name('posts.show');
