@@ -30,9 +30,15 @@ class helloController extends Controller
         }
 
     public function list(){
-        // products 의 데이터를 최신순으로 페이징을 해서 가져옵니다.
+        // 페이징
         $posts = $this->posts->latest()->paginate(5);
-        // produce/index.blade 에 $products 를 보내줍니다
-        return view('list', compact('posts')); //
+        // list 에 $posts 를 보내줌
+        return view('list', compact('posts'));
     }
+
+    public function show(post $post){
+        //post.show 로 post 페이지의 데이터를 넘김
+        return view('show', compact('post'));
+    }
+
 }

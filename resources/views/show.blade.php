@@ -16,15 +16,15 @@
             <tbody>
                 <tr>
                     <td>작성자</td>
-                    <td><c:out value="${boardInfo.brdwriter}"/></td>
+                    <td>{{$post->writer}}</td>
                 </tr>
                 <tr>
                     <td>제목</td>
-                    <td><c:out value="${boardInfo.brdtitle}"/></td>
+                    <td>{{$post->title}}</td>
                 </tr>
                 <tr>
                     <td>내용</td>
-                    <td><c:out value="${boardInfo.brdmemo}"/></td>
+                    <td>{{$post->content}}</td>
                 </tr>
             </tbody>
         </table>   

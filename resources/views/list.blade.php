@@ -52,7 +52,8 @@
         <td>{{$post->title}}</td>
 
         {{-- 이름 --}}
-        <td>{{$post->writer}}</td>
+        <td>
+          <a href="{{route("posts.show", $post->id)}}">{{$post->writer}}</a></td>
 
         {{-- 날짜 --}}
         <td>{{$post->created_at}}</td>

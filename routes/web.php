@@ -16,9 +16,13 @@ use \App\Http\Controllers\helloController;
 
 
 Route::get('/',[helloController::class,'list'])->name('posts.list');
-Route::get('/show', function () {
-    return view('show');
-})->name('posts.show');
+
+//show
+Route::get('posts/{post}', [helloController::class, 'show'])->name("posts.show");
+
+//글쓰기 버튼
 Route::get('/create',[helloController::class,'create'])->name('posts.create');
 
+//post메소드를 가져와라, '주소설정', '업로드' 기능 작동해라, name으로 이름 정해주기
+//create에서 받아온 데이터를 list의 postCreate로 보내준다. helloController의 upload클래스의 기능을 작동시킨다.
 Route::post('/list/postCreate',[helloController::class,'upload'])->name('upload');
