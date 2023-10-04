@@ -49,17 +49,19 @@
         <td>{{$key+1 + (($posts->currentPage()-1) * 5)}}</td>
 
         {{-- 제목 --}}
-        <td>{{$post->title}}</td>
+        <!-- {{$post->title}} (화면에 띄울 값) -->
+        <td>
+        <a href="{{route("posts.show", $post->id)}}">{{$post->title}}</a>
+        </td>
 
         {{-- 이름 --}}
-        <td>
-          <a href="{{route("posts.show", $post->id)}}">{{$post->writer}}</a></td>
+        <td>{{$post->writer}}</td>
 
         {{-- 날짜 --}}
         <td>{{$post->created_at}}</td>
 
         {{-- 편집/삭제 --}}
-        <td>Edit/Delete</td>
+        <td><a href="{{route("posts.edit", $post)}}">수정</a> / 삭제</td>
 
       </tr>
       @endforeach

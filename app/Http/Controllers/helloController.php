@@ -41,4 +41,20 @@ class helloController extends Controller
         return view('show', compact('post'));
     }
 
+    // 수정
+    public function edit(post $post){
+        return view('edit', compact('post'));
+    }
+
+    //업데이트
+    public function update(request $request, post $post){
+        $request = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'writer' => 'required',
+            'password' => 'required'
+        ]);
+        $post->update($request);
+        return redirect()->route('posts.list', $post);
+    }
 }
