@@ -31,3 +31,6 @@ Route::post('/list/postCreate',[helloController::class,'upload'])->name('upload'
 Route::get('posts/{post}/edit', [helloController::class,'edit'])->name("posts.edit");
 //업데이트에 대한 메서드 - patch
 Route::patch('posts/{post}', [helloController::class,'update'])->name("posts.update");
+
+//삭제
+Route::delete('posts/{post}', [helloController::class, 'destroy'])->name('posts.destroy');

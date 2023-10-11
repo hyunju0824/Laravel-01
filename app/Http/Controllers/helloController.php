@@ -57,4 +57,10 @@ class helloController extends Controller
         $post->update($request);
         return redirect()->route('posts.list', $post);
     }
+
+    //삭제
+    public function destroy(post $post){
+        $post->delete();
+        return redirect()->route('posts.list');
+    }
 }

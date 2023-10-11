@@ -61,8 +61,13 @@
         <td>{{$post->created_at}}</td>
 
         {{-- 편집/삭제 --}}
-        <td><a href="{{route("posts.edit", $post)}}">수정</a> / 삭제</td>
-
+        <td><a href="{{route("posts.edit", $post)}}">수정</a>
+          <form action="{{route('posts.destroy', $post->id)}}" method="post">
+            @method('delete')
+            @csrf
+            <input onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제">
+          </form>
+        </td>
       </tr>
       @endforeach
     </tbody>
