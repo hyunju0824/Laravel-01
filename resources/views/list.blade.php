@@ -10,21 +10,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="bg-yellow-200">
 
   <h2>게시판</h2>          
 
-  <table class="table table-hover">
+  <table class="bg-green-200 mx-auto w-3/4 table-hover">
 
     <thead>
 
@@ -46,11 +42,12 @@
       @foreach ($posts as $key => $post)
       <tr>
 
-        <td>{{$key+1 + (($posts->currentPage()-1) * 5)}}</td>
+        {{-- 번호 --}}
+        <td class="w-10 text-center">{{$key+1 + (($posts->currentPage()-1) * 5)}}</td>
 
         {{-- 제목 --}}
         <!-- {{$post->title}} (화면에 띄울 값) -->
-        <td>
+        <td class="px-3">
         <a href="{{route("posts.show", $post->id)}}">{{$post->title}}</a>
         </td>
 
@@ -78,5 +75,11 @@
   {!! $posts->links() !!}
 
 </div>
+
+<button
+  class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700"
+>
+  Hello, Tailwind CSS!
+</button>
 
 </body> 
