@@ -16,31 +16,32 @@
 
 <body>
 
-<div class="bg-yellow-200">
+<div class="px-10 bg-yellow-200 position:relative">
 
-  <h2>게시판</h2>          
+  <h2 class="text-center">게시판</h2>          
 
   <table class="bg-green-200 mx-auto w-3/4 table-hover">
 
     <thead>
 
-      <tr>
+      <tr class="bg-red-200">
 
         <th>번호</th>
 
-        <th>제목</th>
+        <th class="text-left px-3">제목</th>
 
-        <th>글쓴이</th>
+        <th class="text-left">글쓴이</th>
 
         <th>작성일</th>
 
+        <th> </th>
       </tr>
 
     </thead>
 
     <tbody>
       @foreach ($posts as $key => $post)
-      <tr>
+      <tr class="hover:bg-sky-200">
 
         {{-- 번호 --}}
         <td class="w-10 text-center">{{$key+1 + (($posts->currentPage()-1) * 5)}}</td>
@@ -55,14 +56,14 @@
         <td>{{$post->writer}}</td>
 
         {{-- 날짜 --}}
-        <td>{{$post->created_at}}</td>
+        <td class="text-center">{{$post->created_at}}</td>
 
         {{-- 편집/삭제 --}}
         <td><a href="{{route("posts.edit", $post)}}">수정</a>
           <form action="{{route('posts.destroy', $post->id)}}" method="post">
             @method('delete')
             @csrf
-            <input onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제">
+            <input onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제" class="cursor-pointer">
           </form>
         </td>
       </tr>
@@ -71,7 +72,7 @@
 
   </table>
 
-  <a href="{{route("posts.create")}}" class="btn btn-primary pull-right">글쓰기</a>
+  <a href="{{route("posts.create")}}" class="bg-sky-200 absolute right-0">글쓰기</a>
   {!! $posts->links() !!}
 
 </div>
