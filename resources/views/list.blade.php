@@ -16,19 +16,19 @@
 
 <body>
 
-<div class="px-10 bg-yellow-200 position:relative">
+<div class="px-20">
 
-  <h2 class="text-center">게시판</h2>          
+  <h2 class="p-10 text-center text-3xl">게시판</h2>          
 
-  <table class="bg-green-200 mx-auto w-3/4 table-hover">
+  <table class="mx-auto w-3/4 table-hover border-t-2 border-gray-300">
 
     <thead>
 
-      <tr class="bg-red-200">
+      <tr class="bg-gray-200 h-10">
 
         <th>번호</th>
 
-        <th class="text-left px-3">제목</th>
+        <th class="text-left pl-10">제목</th>
 
         <th class="text-left">글쓴이</th>
 
@@ -41,14 +41,16 @@
 
     <tbody>
       @foreach ($posts as $key => $post)
-      <tr class="hover:bg-sky-200">
+
+      {{-- 보더색깔요 --}}
+      <tr class="hover:bg-gray-100 border-b">
 
         {{-- 번호 --}}
         <td class="w-10 text-center">{{$key+1 + (($posts->currentPage()-1) * 5)}}</td>
 
         {{-- 제목 --}}
         <!-- {{$post->title}} (화면에 띄울 값) -->
-        <td class="px-3">
+        <td class="pl-10">
         <a href="{{route("posts.show", $post->id)}}">{{$post->title}}</a>
         </td>
 
@@ -59,11 +61,11 @@
         <td class="text-center">{{$post->created_at}}</td>
 
         {{-- 편집/삭제 --}}
-        <td><a href="{{route("posts.edit", $post)}}">수정</a>
+        <td><a class="hover:text-blue-600" href="{{route("posts.edit", $post)}}">수정</a>
           <form action="{{route('posts.destroy', $post->id)}}" method="post">
             @method('delete')
             @csrf
-            <input onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제" class="cursor-pointer">
+            <input class="hover:text-blue-600" onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제" class="cursor-pointer">
           </form>
         </td>
       </tr>
@@ -72,7 +74,7 @@
 
   </table>
 
-  <a href="{{route("posts.create")}}" class="bg-sky-200 absolute right-0">글쓰기</a>
+  <div class="mx-auto mt-5 mb-5 w-3/4 flex flex-row justify-end"><a href="{{route("posts.create")}}" class="bg-gray-200 w-14 text-center hover:bg-gray-300">글쓰기</a></div>
   {!! $posts->links() !!}
 
 </div>
