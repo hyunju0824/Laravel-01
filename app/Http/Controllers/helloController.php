@@ -42,8 +42,11 @@ class helloController extends Controller
     }
 
     // 수정
-    public function edit(post $post){
-        return view('edit', compact('post'));
+    public function edit(Request $request, post $post){
+        if($request->password === $post->password)
+            return view('edit', compact('post'));
+        else
+            abort(403, "Not Same Password");
     }
 
     //업데이트
@@ -63,4 +66,6 @@ class helloController extends Controller
         $post->delete();
         return redirect()->route('posts.list');
     }
+
+    
 }
