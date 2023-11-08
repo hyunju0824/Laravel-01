@@ -7,17 +7,7 @@
 
     <!— Tailwind CSS 스타일시트를 불러옵니다. —>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-      @font-face {
-        font-family: 'Pretendard-Regular';
-        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-        font-weight: 400;
-        font-style: normal;
-    }
-    * {
-      font-family: 'Pretendard-Regular';
-    }
-    </style>
+
 </head>
 
 <body>
@@ -50,7 +40,7 @@
                     <form action="{{route('posts.destroy', $post->id)}}" method="post">
                         @method('delete')
                         @csrf
-                        <input onclick="sendPromptValue('{{ route("posts.edit", $post) }}', '{{ $post->id }}')" class="hover:text-blue-600 cursor-pointer" onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제">
+                        <input onclick="sendPromptValue('{{ route("posts.destroy", $post) }}', '{{ $post->id }}')" class="hover:text-blue-600 cursor-pointer" onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제">
                       </form>
                 </td>
             </tr>
