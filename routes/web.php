@@ -34,3 +34,6 @@ Route::patch('posts/{post}', [helloController::class,'update'])->name("posts.upd
 
 //삭제
 Route::delete('posts/{post}', [helloController::class, 'destroy'])->name('posts.destroy');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

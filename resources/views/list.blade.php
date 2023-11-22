@@ -12,8 +12,8 @@
 
 <body>
 <div class="mx-auto mt-5 mb-5 w-3/4 flex flex-row justify-end">
-    {{-- <a href="{{route("posts.login")}}"><button class="bg-gray-200 w-14 text-center hover:bg-gray-300 mr-3">로그인</button></a>
-    <a href="{{route("posts.register")}}"><button class="bg-gray-200 w-16 text-center hover:bg-gray-300">회원가입</button></a> --}}
+    <a href="{{route("login")}}"><button class="bg-gray-200 w-14 text-center hover:bg-gray-300 mr-3">로그인</button></a>
+    <a href="{{route("register")}}"><button class="bg-gray-200 w-16 text-center hover:bg-gray-300">회원가입</button></a>
     </div>
 <div class="px-20">
 
