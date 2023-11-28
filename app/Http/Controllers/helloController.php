@@ -66,6 +66,4 @@ class helloController extends Controller
         $post->delete();
         return redirect()->route('posts.list');
     }
-
-    
 }

@@ -26,12 +26,12 @@
                 <td>{{$post->writer}}</td>
                 <td class="text-center">{{$post->created_at}}</td>
                 <td>
-                    <a onclick="sendPromptValue('{{ route("posts.edit", $post) }}', '{{ $post->id }}')" class="hover:text-blue-600 cursor-pointer">수정</a>
-                    <form action="{{route('posts.destroy', $post->id)}}" method="post">
-                        @method('delete')
-                        @csrf
-                        <input onclick="sendPromptValue('{{ route("posts.destroy", $post) }}', '{{ $post->id }}')" class="hover:text-blue-600 cursor-pointer" onclick="return confirm('글을 삭제하겠습니까?')" type="submit" value="삭제">
-                      </form>
+                    <a onclick="sendPromptValue('{{ route('posts.edit', ['post' => $post->id]) }}', '{{ $post->id }}')" class="hover:text-blue-600 cursor-pointer">수정</a>
+                    <form action="{{route('posts.destroy', $post->id)}}" method="post" onsubmit="return confirm('글을 삭제하겠습니까?')">
+                    @method('delete')
+                    @csrf
+                    <input type="submit" value="삭제" class="hover:text-blue-600 cursor-pointer">
+</form>
                 </td>
             </tr>
         @endforeach
