@@ -15,6 +15,19 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- Tailwind CSS 스타일시트를 불러옵니다. --}}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+          font-family: 'Pretendard-Regular';
+          src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+          font-weight: 400;
+          font-style: normal;
+      }
+      * {
+        font-family: 'Pretendard-Regular';
+      }
+      </style>
 </head>
 <body>
     <div id="app">

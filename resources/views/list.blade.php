@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹 게시판</title>
 
-    <!— Tailwind CSS 스타일시트를 불러옵니다. —>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-</head>
 
 <body>
-<div class="mx-auto mt-5 mb-5 w-3/4 flex flex-row justify-end">
-    <a href="{{route("login")}}"><button class="bg-gray-200 w-14 text-center hover:bg-gray-300 mr-3">로그인</button></a>
-    <a href="{{route("register")}}"><button class="bg-gray-200 w-16 text-center hover:bg-gray-300">회원가입</button></a>
-    </div>
-<div class="px-20">
+    @extends('layouts.app')
 
+@section('content')
     <h2 class="p-10 text-center text-3xl">게시판</h2>
 
     <table class="mx-auto w-3/4 table-hover border-t-2 border-gray-300">
@@ -54,7 +41,7 @@
     <div class="mx-auto mt-5 mb-5 w-3/4 flex flex-row justify-end"><a href="{{route("posts.create")}}" class="bg-gray-200 w-14 text-center hover:bg-gray-300">글쓰기</a></div>
     {!! $posts->links() !!}
 </div>
-
+@endsection
 <script>
     function sendPromptValue(editUrl, postId) {
         let inputValue = prompt("비밀번호를 입력하세요:");

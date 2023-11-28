@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게시글 수정</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<style>
-  @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-* {
-  font-family: 'Pretendard-Regular';
-}
-</style>
-</head>
 <body>
+  @extends('layouts.app')
 
+  @section('content')
 <div class="px-72">
   <h1 class="p-10 text-center text-3xl">게시글 수정</h1>
 
@@ -62,7 +45,7 @@
   </form>
 </div>
 </div>
-
+@endsection
 </body>
 </html>
 
