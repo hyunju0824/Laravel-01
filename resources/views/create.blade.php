@@ -14,22 +14,17 @@
       <label class="block pb-2" for=title>제목</label>
       <input name="title" type=text class="h-9 w-full" id=title required>
     </div>
-    <div class="mx-auto w-9/12">
-        <label class="block pb-2 pt-3.5" for=title>이름</label>
-        <input name="writer" type=text class="h-9" id=writer required>
-      </div>
+        {{-- 어스 이름 가져오기 --}}
+        <input name="writer" type=text class="h-9" id=writer value="{{Auth::user()->name}}">
+ 
     <div class="mx-auto w-9/12">
       <label class="block pb-2 pt-3.5" for=content>내용</label>
       <textarea name="content" class="w-full h-80" id=content rows=3 required></textarea>
     </div>
-    <div class="mx-auto w-9/12">
-        <label class="block pb-2 pt-3.5" for=password>비밀번호</label>
-        <input name="password" type=password class="h-9" id=password required>
-      </div>
       <div class="mx-auto w-9/12" dir="rtl">
         <input class="w-12 bg-gray-300 hover:bg-gray-400" type="submit" name="" id="">
       </div>
-
+      <input name="userKeyValue" type="text" value="{{Auth::user()->email}}">
     
   </form>
   </div>

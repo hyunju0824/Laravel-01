@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('content');
             $table->string('writer');
             $table->timestamps();
-            $table->string('password');
+            $table->string('userKeyValue');
         });
     }
 

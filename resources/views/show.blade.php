@@ -29,7 +29,17 @@
             </tbody>
         </table>   
         <a href="#" onclick="history.back(-1)">돌아가기</a>
-        <a href="board1Delete?brdno=<c:out value="${boardInfo.brdno}"/>">삭제</a>
-        <a href="board1Update?brdno=<c:out value="${boardInfo.brdno}"/>">수정</a>
+        {{-- 포스트 데이터베이스의 유저키밸류가 어스유저의 이메일과 같으면 동작 --}}
+        @if(Auth::check()==false)
+        <div></div>
+       
+        @elseif($post->userKeyValue==Auth::user()->email)
+        <a href="{{route("posts.edit",$post->id)}}">수정</a>
+        <form action="{{route('posts.destroy', $post->id)}}" method="post" onsubmit="return confirm('글을 삭제하겠습니까?')">
+            @method('delete')
+            @csrf
+            <input type="submit" value="삭제" class="hover:text-blue-600 cursor-pointer">
+        </form>
+        @endif
 </body>
 </html>

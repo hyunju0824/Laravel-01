@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\post;
+use Illuminate\Support\Facades\Auth;
 
 class helloController extends Controller
 {
@@ -15,7 +16,12 @@ class helloController extends Controller
         $this->posts = $posts;
     }
     public function create(){
-        return view('create');
+            if(Auth::check()==true){
+                 return view("create");
+            }
+            else{
+                return redirect()->route('login');
+            }
     }
 
     public function upload(request $request){
@@ -23,7 +29,7 @@ class helloController extends Controller
             'title' => 'required',
             'content' => 'required',
             'writer' => 'required',
-            'password' => 'required'
+            'userKeyValue' => 'required'
         ]);
         $this->posts->create($request);
         return redirect()->route('posts.list');
@@ -43,10 +49,10 @@ class helloController extends Controller
 
     // 수정
     public function edit(Request $request, post $post){
-        if($request->password === $post->password)
+        if(Auth::user()->email==$post->userKeyValue)
             return view('edit', compact('post'));
         else
-            abort(403, "Not Same Password");
+             return redirect()->route('posts.list');
     }
 
     //업데이트
@@ -55,7 +61,7 @@ class helloController extends Controller
             'title' => 'required',
             'content' => 'required',
             'writer' => 'required',
-            'password' => 'required'
+            'userKeyValue' => 'required'
         ]);
         $post->update($request);
         return redirect()->route('posts.list', $post);
