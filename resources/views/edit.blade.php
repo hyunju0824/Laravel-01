@@ -26,19 +26,14 @@
       <input name="title" type=text class="h-9 w-full" id=title required value={{$post->title}}>
     </div>
     <div class="mx-auto w-9/12">
-        <label class="block pb-2 pt-3.5" for=title>이름</label>
-        <input name="writer" type=text class="h-9" id=writer required value={{$post->writer}}>
+      <div class="hidden"><input name="writer" type=text class="h-9" id=writer value="{{Auth::user()->name}}"></div>
       </div>
     <div class="mx-auto w-9/12">
       <label class="block pb-2 pt-3.5" for=content>내용</label>
       <textarea name="content" class="w-full h-80"  id=content rows=3 required>{{$post->content}}</textarea>
     </div>
-    <div class="mx-auto w-9/12">
-        <label class="block pb-2 pt-3.5" for=password>비밀번호</label>
-        <input name="password" type=password class="h-9" id=password required value={{$post->password}}>
-      </div>
       <div class="mx-auto w-9/12" dir="rtl">
-        <button class="w-12 bg-gray-300 hover:bg-gray-400" type="submit">수정</button>
+        <button class="w-12 mt-10 bg-gray-300 hover:bg-gray-400" type="submit">수정</button>
       </div>
 
     

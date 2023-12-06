@@ -63,8 +63,6 @@ class helloController extends Controller
         $request = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'writer' => 'required',
-            'userKeyValue' => 'required'
         ]);
         $post->update($request);
         return redirect()->route('posts.list', $post);
