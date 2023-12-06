@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // 로그인 완료시 리스트로 이동
+        return redirect()->route('posts.list');
     }
 }

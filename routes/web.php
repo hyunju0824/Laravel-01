@@ -36,4 +36,9 @@ Route::patch('posts/{post}', [helloController::class,'update'])->name("posts.upd
 Route::delete('posts/{post}', [helloController::class, 'destroy'])->name('posts.destroy');
 Auth::routes();
 
+//로그인
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//내가 쓴 글 보기 버튼
+Route::get('/myPage/{post}',[helloController::class,'myPage'])->name('posts.myPage');
+

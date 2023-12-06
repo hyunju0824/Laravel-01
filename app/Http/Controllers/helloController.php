@@ -37,6 +37,9 @@ class helloController extends Controller
 
     public function list(){
         // 페이징
+        // 
+        // 
+        // 
         $posts = $this->posts->latest()->paginate(5);
         // list 에 $posts 를 보내줌
         return view('list', compact('posts'));
@@ -47,7 +50,7 @@ class helloController extends Controller
         return view('show', compact('post'));
     }
 
-    // 수정
+    // 수정 : 글쓴이 본인이라면 edit 페이지를 띄운다. 본인이 아니라면 list 페이지로 이동.
     public function edit(Request $request, post $post){
         if(Auth::user()->email==$post->userKeyValue)
             return view('edit', compact('post'));
@@ -72,4 +75,12 @@ class helloController extends Controller
         $post->delete();
         return redirect()->route('posts.list');
     }
+
+    //내가 근 쓸 보기 버튼
+    public function myPage(Request $request){
+        $userEmail = $request -> post;
+        $posts = post::where('userKeyValue', $userEmail)-> paginate(5);
+        return view('myPage', compact('posts'));
+    }
+
 }
