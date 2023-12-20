@@ -6,7 +6,7 @@
 @section('content')
     <h2 class="p-10 text-center text-3xl">게시판</h2>
 
-    <table class="mx-auto w-3/5 table-hover border-t-2 border-gray-300">
+    <table class="mx-auto w-3/5 table-hover border-t-2 border-gray-300 mb-20">
         <thead>
         <tr class="bg-gray-200 h-10">
             <th class="w-1/12 text-center">번호</th>
@@ -30,7 +30,7 @@
         </tbody>
     </table>
     @if(Auth::check()==true)
-    <div class="mx-auto mt-5 mb-5 w-3/4 flex flex-row justify-end"><a href="{{route("posts.create")}}" class="bg-gray-200 w-14 text-center hover:bg-gray-300">글쓰기</a></div>
+    <div class="mx-auto w-3/5 text-right"><a href="{{route("posts.create")}}" class="inline-block bg-gray-200 w-14 text-center hover:bg-gray-300">글쓰기</a></div>
     @else
     <div></div>
     @endif

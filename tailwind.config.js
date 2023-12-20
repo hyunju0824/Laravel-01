@@ -1,22 +1,20 @@
-export const purge = [];
-export const darkMode = false;
-export const theme = {
-  extend: {},
-};
-export const variants = {};
-export const plugins = [];
+const colors = require('tailwindcss/colors')
 
 module.exports = {
+  purge: [],
+  darkMode: false,
   theme: {
-    colors: {
-      gray: colors.coolGray,
-      blue: colors.lightBlue,
-      red: colors.rose,
-      pink: colors.fuchsia,
-    },
-    fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+    extend: {
+      colors: {
+        red: colors.rose,
+        pink: colors.fuchsia,
+      },
+      fontFamily: {
+        sans: ["Graphik", "sans-serif"],
+        serif: ["Merriweather", "serif"],
+      },
     },
   },
+  variants: {},
+  plugins: [],
 };

@@ -14,7 +14,6 @@ use \App\Http\Controllers\helloController;
 |
 */
 
-
 Route::get('/',[helloController::class,'list'])->name('posts.list');
 
 //show

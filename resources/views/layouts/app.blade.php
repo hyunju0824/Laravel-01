@@ -64,6 +64,7 @@
                         @else
                             <li class="nav-item dropdown flex">
                                 <a href="{{route("posts.myPage", Auth::user()->email)}}" class="p-2">내가 쓴 글 보기</a>
+                                <span class="p-2 text-gray-800">|</span>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
